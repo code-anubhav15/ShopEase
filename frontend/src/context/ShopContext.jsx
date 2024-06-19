@@ -17,7 +17,7 @@ const ShopContextProvider = (props) => {
     
     useEffect(()=>{
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/getcart',{
+            fetch('https://shopease-g13m.onrender.com/getcart',{
                 method: "POST",
                 headers: {
                 Accept: "application/form-data",
@@ -34,7 +34,7 @@ const ShopContextProvider = (props) => {
     const addToCart = (itemId) => {
         setCartItem((prev)=>({...prev,[itemId]:prev[itemId]+1}))
         if(localStorage.getItem('auth-token')){
-            fetch('http://localhost:4000/addtocart',{
+            fetch('https://shopease-g13m.onrender.com/addtocart',{
                 method: "POST",
                 headers: {
                   Accept: "application/form-data",
@@ -51,7 +51,7 @@ const ShopContextProvider = (props) => {
     const removeFromCart = (itemId) => {
         setCartItem((prev) =>({ ...prev, [itemId]: prev[itemId] - 1 }));
             if (localStorage.getItem('auth-token')) {
-                fetch('http://localhost:4000/removefromcart', {
+                fetch('https://shopease-g13m.onrender.com/removefromcart', {
                     method: "POST",
                     headers: {
                         Accept: "application/json",
